@@ -57,8 +57,7 @@
         </service>
         <service
             android:name="com.stardust.autojs.core.image.capture.CaptureForegroundService"
-            android:exported="false"
-            android:foregroundServiceType="mediaProjection" />
+            android:exported="false" />
 
     </application>
 

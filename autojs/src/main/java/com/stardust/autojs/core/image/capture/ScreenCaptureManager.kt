@@ -8,9 +8,8 @@ import android.media.projection.MediaProjectionManager
 import com.stardust.app.OnActivityResultDelegate
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.coroutineScope
-import java.util.concurrent.CancellationException
-import android.util.Log
 import kotlinx.coroutines.delay
+import java.util.concurrent.CancellationException
 
 class ScreenCaptureManager : ScreenCaptureRequester {
     @Volatile

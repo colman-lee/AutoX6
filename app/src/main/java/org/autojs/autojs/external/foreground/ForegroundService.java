@@ -6,7 +6,6 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -16,10 +15,12 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
+import com.stardust.app.foreground.AbstractBroadcastService;
+
 import org.autojs.autoxjs.R;
 import org.autojs.autojs.ui.main.MainActivity;
 
-public class ForegroundService extends Service {
+public class ForegroundService extends AbstractBroadcastService {
 
 
     private static final int NOTIFICATION_ID = 1;
