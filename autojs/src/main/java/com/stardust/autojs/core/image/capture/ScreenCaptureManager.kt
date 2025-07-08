@@ -46,7 +46,7 @@ class ScreenCaptureManager : ScreenCaptureRequester {
                 Activity.RESULT_OK,
                 result
             )
-        CaptureForegroundService.mediaProjection = mediaProjection
+        CaptureForegroundService.setMediaProjection(context, mediaProjection!!)
         screenCapture = ScreenCapturer(mediaProjection!!, orientation)
     }
 

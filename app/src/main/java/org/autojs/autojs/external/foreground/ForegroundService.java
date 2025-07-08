@@ -15,13 +15,12 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
-import com.stardust.app.foreground.AbstractBroadcastService;
+import com.stardust.app.service.AbstractAutoService;
 
 import org.autojs.autoxjs.R;
 import org.autojs.autojs.ui.main.MainActivity;
 
-public class ForegroundService extends AbstractBroadcastService {
-
+public class ForegroundService extends AbstractAutoService {
 
     private static final int NOTIFICATION_ID = 1;
     private static final String CHANEL_ID = ForegroundService.class.getName() + ".foreground";
@@ -34,7 +33,7 @@ public class ForegroundService extends AbstractBroadcastService {
         }
     }
 
-    public static void stop(Context context){
+    public static void stop(Context context) {
         context.stopService(new Intent(context, ForegroundService.class));
     }
 

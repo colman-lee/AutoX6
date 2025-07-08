@@ -62,11 +62,11 @@ import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.preference.PreferenceManager
 import com.stardust.app.GlobalAppContext
-import com.stardust.app.foreground.AbstractBroadcastService
 import com.stardust.app.isOpPermissionGranted
 import com.stardust.app.permission.DrawOverlaysPermission
 import com.stardust.app.permission.DrawOverlaysPermission.launchCanDrawOverlaysSettings
 import com.stardust.app.permission.PermissionsSettingsUtil
+import com.stardust.app.service.AbstractAutoService.Companion.stopAllServices
 import com.stardust.enhancedfloaty.FloatyService
 import com.stardust.notification.NotificationListenerService
 import com.stardust.toast
@@ -337,13 +337,10 @@ private fun BottomButtons() {
 
 fun exitCompletely(context: Context) {
     AutoJs.getInstance().scriptEngineService.stopAll()
-    if (context is Activity) context.finish()
     FloatyWindowManger.hideCircularMenu()
     context.stopService(Intent(context, FloatyService::class.java))
-
-    // 发送广播触发所有服务停止
-    val stopIntent = Intent(AbstractBroadcastService.ACTION_STOP_ALL_SERVICES)
-    context.sendBroadcast(stopIntent)
+    stopAllServices()
+    if (context is Activity) context.finish()
 }
 
 @Composable
